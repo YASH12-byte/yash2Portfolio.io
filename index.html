@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yash's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .profile {
+      width: 150px;
+      border-radius: 50%;
+    }
+    iframe {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Welcome to My Personal Site</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="books.html">Books</a>
+  </nav>
+</header>
+
+<div class="container">
+  <img src="yash.jpg" alt="yash" class="profile">
+
+  <h2>SACRIFICE = SUCCESS | Best Study Motivation</h2>
+  <iframe width="560" height="315" 
+    src="https://www.youtube.com/embed/CFiCdpnn-jo" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+
+  <h2>Location & Contact</h2>
+  <p><strong>Current Location:</strong> Pune, India</p>
+  <!-- Google Maps iframe showing Pune -->
+  <iframe 
+    src="https://www.google.com/maps?q=Pune,India&output=embed" 
+    width="100%" 
+    height="300" 
+    style="border:0;" 
+    allowfullscreen 
+    loading="lazy">
+  </iframe>
+
+  <!-- Button to get current location -->
+  <p><strong>Your Current Location (from browser):</strong></p>
+  <button onclick="getLocation()">Get My Location</button>
+  <p id="user-location"></p>
+
+  <p><strong>Email:</strong> <a href="mailto:yash@example.com">yash@example.com</a></p>
+
+  <h2>Achievements</h2>
+  <ul>
+    <li>Built 5+ full-stack projects</li>
+    <li>Top 10% in National Coding Competition</li>
+    <li>Interned at XYZ Tech as a Backend Developer</li>
+  </ul>
+
+  <h2>Favorite Websites</h2>
+  <ul>
+    <li><a href="https://stackoverflow.com">StackOverflow</a> – for community-driven problem solving</li>
+    <li><a href="https://github.com">GitHub</a> – for open-source exploration and contribution</li>
+  </ul>
+
+  <h2>Favorite Startups</h2>
+  <ul>
+    <li>Notion – excellent UI/UX and productivity-driven</li>
+    <li>Figma – collaborative design at its finest</li>
+  </ul>
+
+  <h2>Contact Me</h2>
+  <form action="mailto:yash@example.com" method="post" enctype="text/plain">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <input type="submit" value="Send Message">
+  </form>
+</div>
+
+<footer>
+  &copy; 2025 Yash | All rights reserved
+</footer>
+
+<!-- JavaScript to get user's current location -->
+<script>
+  function getLocation() {
+    const locationElement = document.getElementById("user-location");
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        locationElement.innerHTML = `Latitude: ${lat.toFixed(5)}, Longitude: ${lon.toFixed(5)}<br>
+          <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank">View on Google Maps</a>`;
+      }, function(error) {
+        locationElement.innerHTML = "Unable to retrieve your location.";
+      });
+    } else {
+      locationElement.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+</script>
+
+</body>
+</html>
+
